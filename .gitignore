@@ -1,0 +1,10 @@
+node_modules
+# Keep environment variabees out of version control
+
+/generated/prisma
+
+.vercel
+
+
+dist/
+config.bat
