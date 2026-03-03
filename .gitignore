@@ -1,0 +1,12 @@
+node_modules
+# Keep environment variabees out of version control
+.env
+
+/generated/prisma
+
+.vercel
+
+
+dist/
+.env
+.env.local
