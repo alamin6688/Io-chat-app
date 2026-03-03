@@ -11,22 +11,6 @@ socket.on('newClient', (data) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const form = document.getElementById('message-form');
 const input = document.getElementById('message-input');
 const messagesContainer = document.getElementById('messages');
