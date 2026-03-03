@@ -5,9 +5,9 @@ app.use(express.static("public"))
 
 const expressServer = app.listen(4000)
 
-const socketio = require('socket.io')
+const socketIo = require('socket.io')
 
-const io = socketio(expressServer, {
+const io = socketIo(expressServer, {
     cors: {
         origin: "*",
         methods: ["GET", "POST"],
@@ -16,5 +16,13 @@ const io = socketio(expressServer, {
 })
 
 io.on('connection', (socket) => {
-    console.log(socket.id,'has joined our server.')
+    console.log(socket.id, 'has joined our server!')
+
+    socket.emit('welcome', [1, 2, 3])
+    io.emit('newClient', socket.id)
+
+    socket.on('message', (data) => {
+        console.log('message from client', data)
+        io.emit('message', data) // Broadcast to ALL clients
+    })
 })
